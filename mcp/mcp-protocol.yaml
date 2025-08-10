@@ -29,3 +29,37 @@ protocols:
     endpoints:
       - /monitoring/logs
       - /monitoring/alerts
+
+# MCP - Multi-Agent Collaboration Protocol
+version: "1.0"
+project: Gallery Project
+orchestrator:
+  name: Director
+  role: Central Coordinator & Decision-Maker
+  description: "The Director oversees all sub-agents, ensures alignment with business goals, and manages task delegation, escalation, and integration."
+
+agents:
+  - name: Authentication & Authorization Expert
+    role: auth-expert
+    file: ../agents/auth-expert.md
+    reports_to: Director
+    status: active
+
+  - name: API & Backend Developer
+    role: api-backend-dev
+    file: ../agents/api-backend-dev.md
+    reports_to: Director
+    status: active
+
+  - name: Frontend Expert / UI-UX Engineer
+    role: frontend-expert
+    file: ../agents/frontend-expert.md
+    reports_to: Director
+    status: active
+
+  # ... [other agents listed here]
+
+communication:
+  protocol: async-http-webhooks
+  coordination_tool: Slack + GitHub Issues
+  escalation_path: Director

@@ -1,53 +1,52 @@
 # Gallery Project
 
-Welcome to the Gallery Project! This repository provides the architecture, agent roles, protocols, and documentation for building a modern, AI-powered photo gallery application.
+A next-generation photo & file gallery platform designed to **disrupt Google One, Google Photos, OneDrive, Dropbox, and Apple Photos** by offering:
 
-## Project Overview
+- ✅ **Ultra-low-cost pricing**
+- ✅ **Built-in sovereign data controls**
+- ✅ **Unlimited tiered storage at affordable rates**
+- ✅ **GDPR & geo-compliant by design**
 
-The Gallery Project is designed to be a scalable, secure, and feature-rich platform for managing and sharing photos. It leverages cloud storage, AI/ML for image recognition, and a modular agent-based architecture to streamline development and operations.
+Built on a modular multi-agent architecture where all sub-agents report to the **Director** as the central orchestrator.
 
-## Features
-- User authentication and authorization
-- Cloud storage integration
-- AI-powered image tagging and recommendations
-- Social media sharing
-- Logging, monitoring, and security best practices
-- Modular agent roles for collaborative development
+## 🎯 Vision
+Capture market share from users frustrated with expensive storage upgrades and lack of control over their data.
 
-## Repository Structure
+## 🧠 Architecture
+- **Orchestrator**: Director (main agent)
+- **Sub-Agents**: 9 specialized experts
+- **MCP Protocol**: Defined in `mcp/mcp-protocol.yaml`
 
-- `agents/`: Role descriptions for each project agent
-- `mcp/`: Protocol definitions (see `mcp/mcp-protocol.yaml`)
-- `docs/`: Architecture diagrams and documentation (see `docs/architecture-flow.png`)
-- `tech-stack.md`: Technologies used
-- `strategy.md`: Project strategy and goals
+## 🛠️ Tech Stack
+See [`tech-stack.md`](./tech-stack.md)
 
-## Architecture
+## 📚 Agents
+Each agent is defined in `/agents/` with:
+- Role
+- Tasks
+- Tools & Tech
+- Reporting Structure
 
-See the architecture flow diagram in `docs/architecture-flow.png` for a high-level overview of system components and data flow.
+💻 Frontend Expert – Builds the user interface and ensures a seamless, fast, and beautiful gallery experience.
 
-## Getting Started
+### 🎯 Why This Role Is Essential
+- **User Retention:** A slow or clunky UI drives users back to Google or Apple.
+- **First Impressions:** Your app must feel premium, even if it's cheaper.
+- **AI Search UX:** Tag-based search (e.g., “sunset”) needs intuitive UI.
+- **Offline Access:** PWA support requires dedicated frontend work.
+- **Brand Trust:** Polished UI = trustworthy product.
+- **Marketing Alignment:** Landing pages, onboarding, and trials are frontend-heavy.
 
-1. **Clone the repository:**
-   ```bash
-   git clone https://github.com/your-username/gallery-project.git
-   cd gallery-project
-   ```
-2. **Install dependencies:**
-   - For the frontend/backend, follow instructions in the respective directories (to be added).
-3. **Set up environment variables:**
-   - Copy `.env.example` to `.env` and fill in required values (to be added).
-4. **Run the application:**
-   - Instructions for running locally and in production will be provided as the project evolves.
+**Without a Frontend Expert, you risk:**
+- Poor conversion from free to paid
+- High churn due to bad UX
+- Inability to compete visually with incumbents
 
-## Contributing
+## 📊 Strategy
+See [`strategy.md`](./strategy.md) for competitive positioning and marketing roadmap.
 
-Contributions are welcome! Please see the agent role descriptions in the `agents/` directory to find your area of interest.
-
-## License
-
-This project is licensed under the MIT License.
-
----
-
-For more details, see the respective files in each directory.
+## 🚀 Getting Started
+1. Review `mcp-protocol.yaml`
+2. Assign agent roles
+3. Begin sprint planning
+4. Use the architecture flow in `docs/architecture-flow.png`
