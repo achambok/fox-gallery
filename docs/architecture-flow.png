@@ -1,0 +1,47 @@
+This file is now represented as a Mermaid diagram in the documentation. See below for the architecture flow:
+
+```mermaid
+flowchart TD
+    User["User"]
+    SupabaseAuth["Supabase Auth"]
+    Stripe["Stripe"]
+    APILayer["API Layer (Cloudflare Workers / Vercel)"]
+    AIServices["AI Services (Tagging, Moderation)"]
+    SupabaseDB["Supabase DB (Users, Tiers, Metadata, Geo, GDPR)"]
+    CloudflareD1["Cloudflare D1 (Metadata Cache)"]
+    BackblazeB2["Backblaze B2 Storage (Multi-region Buckets)"]
+    Logging["Logging & Monitoring"]
+    SocialMedia["Social Media"]
+    CloudflareCDN["Cloudflare CDN + Geo-Restrictions"]
+    SecurityModule["Security Module / WAF, DDoS, GeoIP"]
+
+    User -->|"Login/Signup"| SupabaseAuth
+    User -->|"Manage subscription/payment"| Stripe
+    User -->|"Requests upload/download/share"| APILayer
+    SupabaseAuth --> APILayer
+    Stripe --> APILayer
+    APILayer -->|"Verify JWT + Tier + Geo"| AIServices
+    APILayer -->|"Fetch metadata + geo data"| SupabaseDB
+    APILayer -->|"Generate signed URLs"| BackblazeB2
+    APILayer -->|"Integrate social sharing"| SocialMedia
+    APILayer -->|"Logging"| Logging
+    APILayer -->|"Check sharing permissions + GDPR consent"| SocialMedia
+    APILayer -->|"Uploads/Downloads via signed URLs"| User
+    APILayer -->|"Geo-Restriction Enforcement"| User
+    APILayer -->|"Rate limiting, auth checks"| SecurityModule
+    AIServices --> SupabaseDB
+    AIServices --> CloudflareD1
+    AIServices --> BackblazeB2
+    AIServices --> Logging
+    AIServices --> SocialMedia
+    SupabaseDB --> CloudflareCDN
+    CloudflareD1 --> CloudflareCDN
+    BackblazeB2 --> CloudflareCDN
+    Logging --> CloudflareCDN
+    SocialMedia --> CloudflareCDN
+    CloudflareCDN -->|"WAF, DDoS protection, GeoIP"| SecurityModule
+    SecurityModule --> User
+    SecurityModule --> APILayer
+    SecurityModule --> CloudflareCDN
+    CloudflareCDN --> User
+```
