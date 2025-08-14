@@ -30,8 +30,6 @@ protocols:
       - /monitoring/logs
       - /monitoring/alerts
 
-# MCP - Multi-Agent Collaboration Protocol
-version: "1.0"
 project: Gallery Project
 orchestrator:
   name: Director
